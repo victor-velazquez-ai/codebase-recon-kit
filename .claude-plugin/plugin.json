@@ -1,0 +1,14 @@
+{
+  "name": "codebase-recon-kit",
+  "displayName": "Codebase Recon Kit",
+  "version": "1.0.0",
+  "description": "Five skills to walk into any codebase like a senior engineer: adversarial audit, professional HTML docs, executable backlog, and status tracker — all written to a local, git-ignored folder.",
+  "author": {
+    "name": "Victor Velazquez",
+    "url": "https://github.com/victor-velazquez-ai"
+  },
+  "homepage": "https://github.com/victor-velazquez-ai/codebase-recon-kit",
+  "repository": "https://github.com/victor-velazquez-ai/codebase-recon-kit",
+  "license": "MIT",
+  "keywords": ["codebase", "audit", "documentation", "backlog", "onboarding", "recon"]
+}

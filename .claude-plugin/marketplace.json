@@ -1,0 +1,24 @@
+{
+  "name": "victor-velazquez-plugins",
+  "owner": {
+    "name": "Victor Velazquez",
+    "url": "https://github.com/victor-velazquez-ai"
+  },
+  "description": "Codebase reconnaissance and analysis skills for Claude Code.",
+  "plugins": [
+    {
+      "name": "codebase-recon-kit",
+      "source": "./",
+      "displayName": "Codebase Recon Kit",
+      "description": "Audit, document, backlog, and status-track any codebase — output to a local, git-ignored folder.",
+      "author": {
+        "name": "Victor Velazquez",
+        "url": "https://github.com/victor-velazquez-ai"
+      },
+      "homepage": "https://github.com/victor-velazquez-ai/codebase-recon-kit",
+      "repository": "https://github.com/victor-velazquez-ai/codebase-recon-kit",
+      "license": "MIT",
+      "keywords": ["codebase", "audit", "documentation", "backlog", "onboarding"]
+    }
+  ]
+}

@@ -36,23 +36,27 @@ The audit is the deep read that finds the truth; the docs explain what you now u
 
 ## Install
 
-Skills live in a `skills/` folder here. Use them personally (all your projects) or per-project.
+### Option A — as a plugin (recommended, one command)
+```
+/plugin marketplace add victor-velazquez-ai/codebase-recon-kit
+/plugin install codebase-recon-kit@victor-velazquez-plugins
+```
+The five skills load **namespaced**, e.g. `/codebase-recon-kit:recon-new-project`, `/codebase-recon-kit:audit-codebase`. Verify with `/plugin list`. Everything else — commands, updates — flows through the plugin manager.
 
-**Personal (recommended — available in every repo):**
+### Option B — copy the skills manually
 ```bash
 git clone https://github.com/victor-velazquez-ai/codebase-recon-kit.git
-# symlink each skill into your personal Claude skills dir:
-mkdir -p ~/.claude/skills
-for s in codebase-recon-kit/skills/*/; do ln -s "$(pwd)/$s" ~/.claude/skills/; done
-# (or just copy: cp -r codebase-recon-kit/skills/* ~/.claude/skills/)
-```
-
-**Per-project (checked into a repo's `.claude/skills/`):**
-```bash
+# personal (available in every repo):
+cp -r codebase-recon-kit/skills/* ~/.claude/skills/
+# or per-project (checked into a repo):
 cp -r codebase-recon-kit/skills/* /path/to/your/repo/.claude/skills/
 ```
 
-Restart Claude Code (or reload skills) and they'll be discovered by their `description` triggers.
+Either way, the skills are discovered by their `description` triggers — just ask in natural language.
+
+## See it in action
+
+[**`examples/sample-recon/`**](examples/sample-recon/) is a complete sample output pack for a fictional AI SaaS ("Recapp") — an [audit](examples/sample-recon/audit/README.md) (verdict, severity dashboard, findings register), [docs with Mermaid diagrams](examples/sample-recon/docs/md/02-architecture.md), a [backlog](examples/sample-recon/BACKLOG.md), and a [status tracker](examples/sample-recon/STATUS.md). It's exactly what the skills produce — read it to see the shape and quality before running it on your own repo.
 
 ---
 
