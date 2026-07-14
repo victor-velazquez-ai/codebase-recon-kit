@@ -1,0 +1,19 @@
+# Node (only present if you `npm i marked` to build docs locally)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# The kit's own output convention — never commit generated recon packs
+recon/
+
+# Vendored doc-build assets (large; fetched on demand)
+**/html/assets/marked.esm.js
+**/html/assets/mermaid.min.js
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
