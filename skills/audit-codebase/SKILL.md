@@ -15,9 +15,9 @@ Produce the review a skeptical principal engineer would write on their first har
 - **Read-only.** No code/config/spec changes. Cite, don't fix (fixes are tickets — see [[create-backlog]]).
 
 ## Output location (always git-ignored)
-Write to `recon/audit/` in the target repo:
+Write to `local/recon/audit/` in the target repo:
 ```
-recon/audit/
+local/recon/audit/
   README.md                 ← executive summary (verdict, dashboard, the N Criticals, systemic themes)
   00-findings-register.md   ← every finding in one table + the P0/P1/P2 roadmap
   01-security.md
@@ -29,7 +29,7 @@ recon/audit/
   07-dependencies-build.md
   08-<readiness>-and-testing.md   ← SaaS/enterprise readiness + the *reality* of the test suite
 ```
-Ensure `recon/` is ignored: `printf 'recon/\n' >> .git/info/exclude`.
+Ensure `local/` is ignored: `printf 'local/\n' >> .git/info/exclude`.
 
 ## Domains (one focused pass each — add/drop to fit the system)
 1. **Security** — authN vs authZ (the classic gap: authenticated ≠ authorized), RBAC on the *deployed* path, secrets, IAM scoping, CORS, webhook/signature trust, injection, tenant-security.

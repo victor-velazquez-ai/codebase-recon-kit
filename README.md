@@ -10,11 +10,11 @@ Built from a real, battle-tested workflow used to audit and document a ~86k-LOC 
 
 | Skill | What it does | Output |
 |-------|--------------|--------|
-| **`audit-codebase`** | Independent, adversarial senior-engineer **and** senior-AI-engineer audit. Traces the *deployed* path, finds real correctness/security/cost/architecture defects, judges severity against the project's *stated goal* (not "does it run"). Findings register + severity dashboard + P0/P1/P2 roadmap. | `recon/audit/` |
-| **`document-codebase`** | Professional, deeply-explained docs — junior-friendly yet intimate. Numbered Markdown chapters with Mermaid diagrams (architecture, flows, data model, state machines), rendered to a self-contained HTML site with a sidebar and dark theme. | `recon/docs/` |
-| **`create-backlog`** | Turns findings/features into **executable** tickets: stable IDs, cited current-state, concrete implementation plan, checkable success-criteria, dependency graph, build waves. One ticket = one PR. | `recon/BACKLOG.md` |
-| **`create-status-tracker`** | The single source of truth for ticket/project state — master table (status/pri/effort/owner/PR/note), at-a-glance, blockers, append-only change log. | `recon/STATUS.md` |
-| **`recon-new-project`** | **The orchestrator.** Runs the four above *in order* (audit → docs → backlog → tracker) for a new repo, all into one git-ignored folder. Your one-command onboarding. | `recon/` |
+| **`audit-codebase`** | Independent, adversarial senior-engineer **and** senior-AI-engineer audit. Traces the *deployed* path, finds real correctness/security/cost/architecture defects, judges severity against the project's *stated goal* (not "does it run"). Findings register + severity dashboard + P0/P1/P2 roadmap. | `local/recon/audit/` |
+| **`document-codebase`** | Professional, deeply-explained docs — junior-friendly yet intimate. Numbered Markdown chapters with Mermaid diagrams (architecture, flows, data model, state machines), rendered to a self-contained HTML site with a sidebar and dark theme. | `local/recon/docs/` |
+| **`create-backlog`** | Turns findings/features into **executable** tickets: stable IDs, cited current-state, concrete implementation plan, checkable success-criteria, dependency graph, build waves. One ticket = one PR. | `local/recon/BACKLOG.md` |
+| **`create-status-tracker`** | The single source of truth for ticket/project state — master table (status/pri/effort/owner/PR/note), at-a-glance, blockers, append-only change log. | `local/recon/STATUS.md` |
+| **`recon-new-project`** | **The orchestrator.** Runs the four above *in order* (audit → docs → backlog → tracker) for a new repo, all into one git-ignored folder. Your one-command onboarding. | `local/recon/` |
 
 ### How they fit
 
@@ -75,7 +75,7 @@ Or invoke a skill explicitly by name if your client supports it.
 ### Output layout (always git-ignored)
 
 ```
-recon/
+local/recon/
   audit/                    ← executive summary, findings register, per-domain reports
   docs/
     md/                     ← numbered chapters
@@ -86,12 +86,12 @@ recon/
   README.md                 ← index of the whole pack
 ```
 
-The kit writes everything under `recon/` and adds it to `.git/info/exclude` (a **local** ignore that never modifies the target repo's tracked `.gitignore`). Promote anything to the tracked tree only if you choose to.
+The kit writes everything under `local/recon/` and adds `local/` to `.git/info/exclude` (a **local** ignore that never modifies the target repo's tracked `.gitignore`). Promote anything to the tracked tree only if you choose to.
 
 ### Building the docs site
 
 ```bash
-cd recon/docs
+cd local/recon/docs
 npm i marked                                   # one-time: Markdown → HTML at build time
 RECON_BRAND="ACME" RECON_TAG="Engineering Portal" node build-html.mjs
 open html/index.html

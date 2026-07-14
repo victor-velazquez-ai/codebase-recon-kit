@@ -9,17 +9,17 @@ Produce documentation a new senior hire could read on day one and understand the
 
 ## Output location (always git-ignored)
 
-Write to `recon/docs/` in the target repo:
+Write to `local/recon/docs/` in the target repo:
 
 ```
-recon/docs/
+local/recon/docs/
   md/            ← the chapters you write (NN-title.md)
   html/          ← generated site (build step creates this)
   build-html.mjs ← copy from this skill's assets/
 ```
 
-If `recon/` is not already ignored, exclude it locally without touching tracked files:
-`printf 'recon/\n' >> .git/info/exclude` (or add `recon/` to `.gitignore` if the user wants it tracked-ignored).
+If `local/` is not already ignored, exclude it locally without touching tracked files:
+`printf 'local/\n' >> .git/info/exclude` (or add `local/` to `.gitignore` if the user wants it tracked-ignored).
 
 ## Process
 
@@ -81,14 +81,14 @@ sequenceDiagram
 ````
 
 ### 5. Build the HTML site
-1. Copy this skill's `assets/build-html.mjs` to `recon/docs/build-html.mjs`.
-2. Make `marked` available: from `recon/docs/`, run `npm i marked` (creates a tiny local `node_modules`), **or** vendor an ESM build to `recon/docs/html/assets/marked.esm.js` for fully-offline builds.
+1. Copy this skill's `assets/build-html.mjs` to `local/recon/docs/build-html.mjs`.
+2. Make `marked` available: from `local/recon/docs/`, run `npm i marked` (creates a tiny local `node_modules`), **or** vendor an ESM build to `local/recon/docs/html/assets/marked.esm.js` for fully-offline builds.
 3. Build:
    ```bash
-   cd recon/docs
+   cd local/recon/docs
    RECON_BRAND="ACME" RECON_TAG="Engineering Portal" node build-html.mjs
    ```
-4. Open `recon/docs/html/index.html`. Mermaid loads from a vendored `html/assets/mermaid.min.js` if present, else a pinned CDN (needs network in the browser only). To go fully offline, drop `mermaid.min.js` into `html/assets/`.
+4. Open `local/recon/docs/html/index.html`. Mermaid loads from a vendored `html/assets/mermaid.min.js` if present, else a pinned CDN (needs network in the browser only). To go fully offline, drop `mermaid.min.js` into `html/assets/`.
 
 The builder auto-discovers files, derives each page title from its first `# H1`, rewrites intra-doc `.md` links to `.html`, and builds the sidebar (Documentation group + Audit group if an `audit/` folder is present next to `docs/`). Re-run it any time the Markdown changes.
 

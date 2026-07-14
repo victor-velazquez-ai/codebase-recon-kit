@@ -8,7 +8,7 @@ description: Use when the user wants a rigorous, implementation-ready ticket bac
 Turn a goal — a new feature, or an [[audit-codebase]] finding set — into tickets that are so concrete an engineer or an autonomous agent can execute each one as a single clean PR, with tests and a self-audit, without asking follow-ups. The definition of done is: **the success-criteria checkboxes.**
 
 ## Output location (always git-ignored)
-Write to `recon/BACKLOG.md` (single file) in the target repo. For a large multi-epic effort, use `recon/backlog/<epic>-BACKLOG.md`. Ensure `recon/` is ignored: `printf 'recon/\n' >> .git/info/exclude`.
+Write to `local/recon/BACKLOG.md` (single file) in the target repo. For a large multi-epic effort, use `local/recon/backlog/<epic>-BACKLOG.md`. Ensure `local/` is ignored: `printf 'local/\n' >> .git/info/exclude`.
 
 ## Before writing
 - Read the code the tickets will touch — every ticket's **Current state** must reflect what's actually there (`path:line`), not an assumption. This is what makes a backlog trustworthy.

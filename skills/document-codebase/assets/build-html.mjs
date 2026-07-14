@@ -8,7 +8,7 @@
  *
  * Expected layout (this script lives in the `docs/` folder):
  *
- *   recon/
+ *   local/recon/
  *     audit/                 ← audit markdown (README.md + NN-*.md), optional
  *     docs/
  *       build-html.mjs       ← this file

@@ -5,7 +5,7 @@ pnpm-lock.yaml
 yarn.lock
 
 # The kit's own output convention — never commit generated recon packs
-recon/
+local/
 
 # Vendored doc-build assets (large; fetched on demand)
 **/html/assets/marked.esm.js

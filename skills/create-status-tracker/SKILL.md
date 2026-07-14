@@ -8,7 +8,7 @@ description: Use when the user wants a single-source-of-truth status tracker for
 Maintain the one document the team trusts for "where is everything right now". It sits beside the [[create-backlog]] (which defines the work) and the [[audit-codebase]] (which motivated it). The rule that keeps it honest: **when a ticket changes state, update this table first — in the same PR that changes it.**
 
 ## Output location (always git-ignored)
-Write to `recon/STATUS.md` in the target repo. Ensure `recon/` is ignored: `printf 'recon/\n' >> .git/info/exclude`.
+Write to `local/recon/STATUS.md` in the target repo. Ensure `local/` is ignored: `printf 'local/\n' >> .git/info/exclude`.
 
 ## Document structure
 1. **Header** — "Single source of truth for … on `<branch/epic>`", authoritative-as-of date (absolute, e.g. `2026-07-08`), companions ([[create-backlog]], [[audit-codebase]]), and the **branch model** (integration branch, ticket branches, final merge).
